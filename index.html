@@ -21,9 +21,15 @@
         .pnlm-title-box {
             margin-bottom: 0;
         }
-
-        .custom-hotspot {
+        .hostspot-arrow {
             background-image: url("/css/flecha.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 60px;
+            height: 60px;
+        }
+        .hotspot-magnifier {
+            background-image: url("/css/lupa.svg");
             background-repeat: no-repeat;
             background-position: center;
             width: 60px;
@@ -108,7 +114,7 @@
         "scenes": {
             "exterior": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Fachada.jpg",
+                "panorama": "/Edited/Outside.jpg",
                 // "title": "Secretaría de Cultura de Cúcuta",
                 "hfov": 120,
                 "pitch": 4,
@@ -120,8 +126,8 @@
                         "type": "scene",
                         "scale": 50,
                         "text": "Entrada \nMuseo de la Memoria",
-                        "sceneId": "entrada",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "entrance",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": 24,
@@ -134,9 +140,9 @@
                 ]
             },
 
-            "entrada": {
+            "entrance": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Entrada.jpg",
+                "panorama": "/Edited/Entrance.jpg",
                 // "title": "Museo de la Memoria",
                 "hfov": 120,
                 "pitch": -11,
@@ -148,23 +154,23 @@
                         "type": "scene",
                         "text": "Secretaría de Cultura de Cúcuta",
                         "sceneId": "exterior",
-                        "cssClass": "custom-hotspot"
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -36,
                         "yaw": -80,
                         "type": "scene",
                         "text": "Salón 1",
-                        "sceneId": "salon1",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room1",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -28,
                         "yaw": 47,
                         "type": "scene",
                         "text": "Salón Central",
-                        "sceneId": "salonCentral",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "roomCentral",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -7,
@@ -183,9 +189,9 @@
                 ]
             },
 
-            "salon1": {
+            "room1": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Salon1.jpg",
+                "panorama": "/Edited/Room1.jpg",
                 // "title": "Salón 1",
                 "hfov": 120,
                 "pitch": -7,
@@ -196,31 +202,31 @@
                         "yaw": -115,
                         "type": "scene",
                         "text": "Entrada \nMuseo de la Memoria",
-                        "sceneId": "entrada",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "entrance",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -36,
                         "yaw": 161,
                         "type": "scene",
                         "text": "Salón Central",
-                        "sceneId": "salonCentral",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "roomCentral",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -36,
                         "yaw": 66,
                         "type": "scene",
                         "text": "Salón 2",
-                        "sceneId": "salon2",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room2",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             },
 
-            "salon2": {
+            "room2": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Salon2.jpg",
+                "panorama": "/Edited/Room2.jpg",
                 // "title": "Salón 2",
                 "hfov": 120,
                 "pitch": -12,
@@ -231,23 +237,23 @@
                         "yaw": -125,
                         "type": "scene",
                         "text": "Salón 1",
-                        "sceneId": "salon1",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room1",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -26,
                         "yaw": 172,
                         "type": "scene",
                         "text": "Salón 3",
-                        "sceneId": "salon3",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room3",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             },
 
-            "salon3": {
+            "room3": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Salon3.jpg",
+                "panorama": "/Edited/Room3.jpg",
                 // "title": "Salón 3",
                 "hfov": 120,
                 "pitch": -13,
@@ -258,23 +264,23 @@
                         "yaw": 86,
                         "type": "scene",
                         "text": "Salón 2",
-                        "sceneId": "salon2",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room2",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -32,
                         "yaw": -79,
                         "type": "scene",
                         "text": "Salón Central",
-                        "sceneId": "salonCentral",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "roomCentral",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             },
 
-            "salonCentral": {
+            "roomCentral": {
                 "type": "equirectangular",
-                "panorama": "/Edited/SalonCentral.jpg",
+                "panorama": "/Edited/RoomCentral.jpg",
                 // "title": "Salón Central",
                 "hfov": 120,
                 "pitch": -18,
@@ -285,47 +291,47 @@
                         "yaw": -31,
                         "type": "scene",
                         "text": "Entrada \nMuseo de la Memoria",
-                        "sceneId": "entrada",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "entrance",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -21,
                         "yaw": 61,
                         "type": "scene",
                         "text": "Salón 1",
-                        "sceneId": "salon1",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room1",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -25,
                         "yaw": 94,
                         "type": "scene",
                         "text": "Salón 3",
-                        "sceneId": "salon3",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room3",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -31,
                         "yaw": -125,
                         "type": "scene",
                         "text": "Salón 4",
-                        "sceneId": "salon4",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room4",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -17,
                         "yaw": -67,
                         "type": "scene",
                         "text": "Salón 7",
-                        "sceneId": "salon7",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room7",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             },
 
-            "salon4": {
+            "room4": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Salon4.jpg",
+                "panorama": "/Edited/Room4.jpg",
                 // "title": "Salón 4",
                 "hfov": 120,
                 "pitch": -8,
@@ -336,31 +342,31 @@
                         "yaw": -76,
                         "type": "scene",
                         "text": "Salón 5",
-                        "sceneId": "salon5",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room5",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -23,
                         "yaw": 55,
                         "type": "scene",
                         "text": "Salón 7",
-                        "sceneId": "salon7",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room7",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -23,
                         "yaw": 95,
                         "type": "scene",
                         "text": "Salón Central",
-                        "sceneId": "salonCentral",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "roomCentral",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             },
 
-            "salon5": {
+            "room5": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Salon5.jpg",
+                "panorama": "/Edited/Room5.jpg",
                 // "title": "Salón 5",
                 "hfov": 120,
                 "pitch": -10,
@@ -371,31 +377,31 @@
                         "yaw": -58,
                         "type": "scene",
                         "text": "Salón 6",
-                        "sceneId": "salon6",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room6",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -48,
                         "yaw": 62,
                         "type": "scene",
                         "text": "Salón 4",
-                        "sceneId": "salon4",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room4",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -14,
                         "yaw": 32,
                         "type": "scene",
                         "text": "Salón Central",
-                        "sceneId": "salonCentral",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "roomCentral",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             },
 
-            "salon6": {
+            "room6": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Salon6.jpg",
+                "panorama": "/Edited/Room6.jpg",
                 // "title": "Salón 6",
                 "hfov": 120,
                 "pitch": -10,
@@ -406,31 +412,31 @@
                         "yaw": 88,
                         "type": "scene",
                         "text": "Salón 5",
-                        "sceneId": "salon5",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room5",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -33,
                         "yaw": -80,
                         "type": "scene",
                         "text": "Salón 7",
-                        "sceneId": "salon7",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room7",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -10,
                         "yaw": -21,
                         "type": "scene",
                         "text": "Salón Central",
-                        "sceneId": "salonCentral",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "roomCentral",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             },
 
-            "salon7": {
+            "room7": {
                 "type": "equirectangular",
-                "panorama": "/Edited/Salon7.jpg",
+                "panorama": "/Edited/Room7.jpg",
                 // "title": "Salón 7",
                 "hfov": 120,
                 "pitch": -7,
@@ -441,24 +447,24 @@
                         "yaw": 63,
                         "type": "scene",
                         "text": "Salón 6",
-                        "sceneId": "salon6",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room6",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -58,
                         "yaw": -55,
                         "type": "scene",
                         "text": "Salón 4",
-                        "sceneId": "salon4",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "room4",
+                        "cssClass": "hostspot-arrow"
                     },
                     {
                         "pitch": -23,
                         "yaw": -77,
                         "type": "scene",
                         "text": "Salón Central",
-                        "sceneId": "salonCentral",
-                        "cssClass": "custom-hotspot"
+                        "sceneId": "roomCentral",
+                        "cssClass": "hostspot-arrow"
                     }
                 ]
             }
