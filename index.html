@@ -33,8 +33,8 @@
         background-image: url("/css/LupaInverted.svg");
         background-repeat: no-repeat;
         background-position: center;
-        width: 60px;
-        height: 60px;
+        width: 30px;
+        height: 30px;
       }
       div.pnlm-tooltip span {
         min-width: 90px;
@@ -97,99 +97,47 @@
         margin-left: -10px;
       }
 
-      /* Lightbox */
       .lightbox {
+        /* Hidden lightbox image */
+        display: none;
         position: fixed;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(10px);
-        height: 100%;
+        z-index: 999;
         width: 100%;
-        left: 0;
-        top: 0;
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-      .lightbox:has(div:target) {
-        transform: translateY(0%);
-        opacity: 1;
-      }
-      .lightbox a.nav {
-        text-decoration: none;
-        color: white;
-        font-size: 40px;
-        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.8);
-        opacity: 0.5;
-        font-weight: 200;
-      }
-      .lightbox a.nav:hover {
-        opacity: 1;
-      }
-      .lightbox .target {
-        position: absolute;
         height: 100%;
-        width: 100%;
-        display: flex;
-        transform: scale(0);
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
-        padding: 2rem;
-      }
-      .lightbox .target *:first-child,
-      .lightbox .target *:last-child {
         text-align: center;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
       }
-      @media all and (max-width: 600px) {
-        .lightbox .target *:first-child,
-        .lightbox .target *:last-child {
-          flex: 0 0 50px;
-        }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        margin-top: 2%;
       }
-      .lightbox .target .content {
-        transform: scale(0.9);
-        opacity: 0;
-        flex: 1 1 auto;
-        align-self: center;
-        max-height: 100%;
-        min-height: 0;
-        min-width: 0;
-        border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0 0 0 3px white, 0 5px 8px 3px rgba(0, 0, 0, 0.6);
-        transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
-      }
-      .lightbox .target .content img {
-        min-width: 100%;
-        min-height: 100%;
-        max-width: 100%;
-        max-height: calc(100vh - 40px);
+      .lightbox:target {
+        /* Show the lightbox */
         display: block;
-        margin: 0;
-      }
-      .lightbox .target:target {
-        transform: scale(1);
-      }
-      .lightbox .target:target .content {
-        transform: scale(1);
-        opacity: 1;
-      }
-      .lightbox .close {
-        position: absolute;
-        right: 10px;
-        top: 10px;
       }
 
-      .lightbox svg {
-        display: block;
-        width: 1em;
-        height: 1em;
-        font-size: 3.5rem;
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 3em;
+        color: #fff;
+        text-decoration: none;
       }
+
+
     </style>
   </head>
   <body>
     <script src="/js/pannellum.js"></script>
+    <!-- Add the image for target lightbox "hidden" (show with clickFunc) -->
+    <div class="lightbox" id="detailImage">
+      <a href="#" class="close" aria-label="close image">&times;</a>
+      <img src="#" alt="" />
+    </div>
     <div id="panorama"></div>
     <script>
       const viewer = pannellum.viewer("panorama", {
@@ -197,7 +145,7 @@
         autoRotateInactivityDelay: 5000,
         autoRotate: 3,
         default: {
-          firstScene: "exterior",
+          firstScene: "roomCentral",
           sceneFadeDuration: 1000,
           author:
             '\<small\> \<a\ href\="https:\/\/josedanield10.com">José Daniel Durán<\/a\> (\<a\ href\="https:\/\/vakano.studio">VaKaNo Studio\<\/a\>) \<\/small\>',
@@ -344,12 +292,55 @@
                 cssClass: "hostspot-arrow",
               },
               {
-                pitch: -7,
+                pitch: -5,
                 yaw: -50,
                 type: "info",
                 cssClass: "hotspot-magnifier",
-                clickHandlerFunc: function () {},
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Room2_Paint1Text.jpg",
+                },
               },
+              {
+                pitch: -4,
+                yaw: 20,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Room2_Paint2Text.jpg",
+                },
+              },
+              {
+                pitch: -3,
+                yaw: 78,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Room2_Paint3Text.jpg",
+                },
+              },
+              {
+                pitch: -3,
+                yaw: 120,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Room2_Paint4Text.jpg",
+                },
+              },
+              {
+                pitch: -1,
+                yaw: 147,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Room2_Paint5Text.jpg",
+                },
+              }
             ],
           },
 
@@ -428,6 +419,116 @@
                 sceneId: "room7",
                 cssClass: "hostspot-arrow",
               },
+              {
+                pitch: -31,
+                yaw: 32,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box01Closed.JPG",
+                  alt: "/Edited/Details/Box01Open.JPG",
+                },
+              },
+              {
+                pitch: -34,
+                yaw: 18,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box02Closed.JPG",
+                  alt: "/Edited/Details/Box02Open.JPG",
+                },
+              },
+              {
+                pitch: -35,
+                yaw: 4,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box03Closed.JPG",
+                  alt: "/Edited/Details/Box03Open.JPG",
+                },
+              },
+              {
+                pitch: -34,
+                yaw: -10,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box04Closed.JPG",
+                  alt: "/Edited/Details/Box04Open.JPG",
+                },
+              },
+              {
+                pitch: -32,
+                yaw: -24,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box05Closed.JPG",
+                  alt: "/Edited/Details/Box05Open.JPG",
+                },
+              },
+              {
+                pitch: -38,
+                yaw: -30,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box06Closed.JPG",
+                  alt: "/Edited/Details/Box06Open.JPG",
+                },
+              },
+              {
+                pitch: -42,
+                yaw: -14,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box07Closed.JPG",
+                  alt: "/Edited/Details/Box07Open.JPG",
+                },
+              },
+              {
+                pitch: -43,
+                yaw: 4,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box08Closed.JPG",
+                  alt: "/Edited/Details/Box08Open.JPG",
+                },
+              },
+              {
+                pitch: -41,
+                yaw: 23,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box09Closed.JPG",
+                  alt: "/Edited/Details/Box09Open.JPG",
+                },
+              },
+              {
+                pitch: -37,
+                yaw: 39,
+                type: "info",
+                cssClass: "hotspot-magnifier",
+                clickHandlerFunc: showImage,
+                clickHandlerArgs: {
+                  image: "/Edited/Details/Box10Closed.JPG",
+                  alt: "/Edited/Details/Box10Open.JPG",
+                },
+              }
             ],
           },
 
@@ -571,7 +672,7 @@
             ],
           },
         },
-        hotSpotDebug: true,
+        hotSpotDebug: false,
         strings: {
           loadButtonLabel: "Click para\nCargar\nPanorama",
           loadingLabel: "Cargando...",
@@ -621,6 +722,58 @@
           -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + "px";
         span.style.marginTop = -span.scrollHeight - 12 + "px";
       }
+
+      let images = {};
+
+      function showImage(event, args) {
+        images = args;
+        let image = document.querySelector("#detailImage img");
+        image.src = images.image;
+        window.location.href = "#detailImage";
+      }
+
+      // On load, remove hash from URL
+      window.onload = function () {
+        window.location.href = "#";
+      };
+
+      // If hash (image shown), and if user clicks outside of image, then close it
+      window.onclick = function (event) {
+        if (event.target.id == "detailImage") {
+          window.location.href = "#";
+          // Also reset image args to default
+          var image = document.querySelector("#detailImage img");
+          image.src = "";
+
+          images = {};
+        }
+      };
+
+      // When the hash is # (no image shown), then remove the image
+      window.onhashchange = function () {
+        if (window.location.hash == "#") {
+          var image = document.querySelector("#detailImage img");
+          image.src = "";
+
+          images = {};
+        }else{
+          // Add event listener to click (alternate between images.image and images.alt), adding a toggle (boolean?)
+
+          let image = document.querySelector("#detailImage img");
+          let toggle = false;
+          image.addEventListener("click", function () {
+            if (toggle) {
+              image.src = images.image;
+              toggle = false;
+            } else {
+              // If images.alt is undefined, do not change image
+              if (images.alt == undefined) return;
+              image.src = images.alt;
+              toggle = true;
+            }
+          });
+        }
+      };
     </script>
   </body>
 </html>
