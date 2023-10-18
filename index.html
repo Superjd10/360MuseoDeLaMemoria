@@ -141,7 +141,6 @@
         <script>
             const viewer = pannellum.viewer("panorama", {
                 autoLoad: true,
-                autoRotateInactivityDelay: 5000,
                 default: {
                     firstScene: "exterior",
                     sceneFadeDuration: 1000,
@@ -157,6 +156,7 @@
                         pitch: 4,
                         yaw: -5,
                         autoRotate: 3,
+                        autoRotateInactivityDelay: 5000,
                         hotSpots: [
                             {
                                 pitch: -14,
@@ -378,9 +378,9 @@
                         panorama: "/Edited/RoomCentral.jpg",
                         // "title": "Salón Central",
                         hfov: 120,
-                        pitch: -18,
-                        yaw: 0,
-                        autoRotate: 3,
+                        pitch: -25,
+                        yaw: 3,
+                        autoRotate: 0,
                         hotSpots: [
                             {
                                 pitch: -7,
@@ -857,6 +857,7 @@
                     images = {};
                 } else {
                     // Stop autoRotate when image is shown
+                    viewer.stopAutoRotate();
                     // Add event listener to click (alternate between images.image and images.alt), adding a toggle (boolean?)
                     let image = document.querySelector("#detailImage img");
                     let toggle = false;
