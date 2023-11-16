@@ -133,11 +133,12 @@
     <body>
         <script src="/js/pannellum.js"></script>
         <!-- Add the image for target lightbox "hidden" (show with clickFunc) -->
-        <div class="lightbox" id="detailImage">
-            <a href="#" class="close" aria-label="close image">&times;</a>
-            <img src="#" alt="" />
+        <div id="panorama">
+            <div class="lightbox" id="detailImage">
+                <a href="#" class="close" aria-label="close image">&times;</a>
+                <img src="#" alt="" />
+            </div>
         </div>
-        <div id="panorama"></div>
         <script>
             const viewer = pannellum.viewer("panorama", {
                 autoLoad: true,
